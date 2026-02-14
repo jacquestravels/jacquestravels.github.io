@@ -7,6 +7,27 @@
 body {
   font-family: Raleway;
   background-color: #ffffff;
+  overflow-y: scroll;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.menu-item:hover {
+  opacity: 0.7;
 }
 
 .heading {
