@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jacquestravels - canada</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:600,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar__container">
+        <a href="../index.html" class="navbar__logo">
+          <img src="../logo.svg" alt="Jacques Travels Logo" class="logo-svg" />
+        </a>
+        <button class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <nav class="navbar__nav" id="navbar-menu">
+          <ul class="navbar__menu">
+            <li><a href="../world/index.html">world</a></li>
+            <li><a href="../canada/index.html">canada</a></li>
+            <li><a href="../usa/index.html">usa</a></li>
+            <li><a href="../wa-state/index.html">wa state</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="gallery-image">
+      <div class="img-box">
+        <img src="img/230805.jpg" alt="" />
+        <div class="transparent-box">
+          <div class="caption">
+            <p>Spirit Island, AB &#127464;&#127462;</p>
+          </div>
+        </div>
+      </div>
+      <div class="img-box">
+        <img src="img/230804.jpg" alt="" />
+        <div class="transparent-box">
+          <div class="caption">
+            <p>Patricia Lake, AB &#127464;&#127462;</p>
+          </div>
+        </div>
+      </div>
+      <div class="img-box">
+        <img src="img/230803.jpg" alt="" />
+        <div class="transparent-box">
+          <div class="caption">
+            <p>Athabasca River, AB &#127464;&#127462;</p>
+          </div>
+        </div>
+      </div>
+      <div class="img-box">
+        <img src="img/230802.jpg" alt="" />
+        <div class="transparent-box">
+          <div class="caption">
+            <p>Moraine Lake, AB &#127464;&#127462;</p>
+          </div>
+        </div>
+      </div>
+      <div class="img-box">
+        <img src="img/230801.jpg" alt="" />
+        <div class="transparent-box">
+          <div class="caption">
+            <p>Calgary Central Library, AB &#127464;&#127462;</p>
+          </div>
+        </div>
+      </div>
+      <div class="img-box">
+        <img src="img/190501.jpg" alt="" />
+        <div class="transparent-box">
+          <div class="caption">
+            <p>La Grande Roue de Montréal, QC &#127464;&#127462;</p>
+          </div>
+        </div>
+      </div>
+      <div class="img-box">
+        <img src="img/180501.jpg" alt="" />
+        <div class="transparent-box">
+          <div class="caption">
+            <p>Ottawa, ON &#127464;&#127462;</p>
+          </div>
+        </div>
+      </div>
+      <div class="img-box">
+        <img src="img/170703.jpg" alt="" />
+        <div class="transparent-box">
+          <div class="caption">
+            <p>Rocher Percé, QC &#127464;&#127462;</p>
+          </div>
+        </div>
+      </div>
+      <div class="img-box">
+        <img src="img/170702.jpg" alt="" />
+        <div class="transparent-box">
+          <div class="caption">
+            <p>Forillon National Park, QC &#127464;&#127462;</p>
+          </div>
+        </div>
+      </div>
+      <div class="img-box">
+        <img src="img/170701.jpg" alt="" />
+        <div class="transparent-box">
+          <div class="caption">
+            <p>QC &#127464;&#127462;</p>
+          </div>
+        </div>
+      </div>
+    <div class="overlay" id="overlay">
+      <img id="overlayImage" src="" alt="Expanded Image">
+      <div class="description" id="overlayDescription">kjkljlkjl</div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menu = document.getElementById('navbar-menu');
+        const toggle = document.getElementById('mobile-menu');
+        if (toggle && menu) {
+          toggle.addEventListener('click', function () {
+            const header = document.querySelector('.navbar');
+            const headerRect = header.getBoundingClientRect();
+            const top = Math.max(0, Math.floor(headerRect.bottom) - 1);
+            menu.style.top = top + 'px';
+            menu.style.maxHeight = `calc(100vh - ${top}px)`;
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+          });
+        }
+      });
+      const gallery = document.querySelector('.gallery-image');
+      const overlay = document.getElementById('overlay');
+      const overlayImage = document.getElementById('overlayImage');
+      const overlayDescription = document.getElementById('overlayDescription');
+      if (gallery) {
+        gallery.addEventListener('click', (event) => {
+          const imgBox = event.target.closest('.img-box');
+          if (imgBox) {
+            const img = imgBox.querySelector('img');
+            const description = imgBox.querySelector('.caption p').textContent;
+            overlayImage.src = img.src;
+            overlayDescription.textContent = description;
+            overlay.style.display = 'flex';
+          }
+        });
+      }
+      if (overlay) {
+        overlay.addEventListener('click', (event) => {
+          if (event.target === overlay) {
+            overlay.style.display = 'none';
+            overlayImage.src = '';
+            overlayDescription.textContent = '';
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
